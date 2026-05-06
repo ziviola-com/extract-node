@@ -1,0 +1,49 @@
+{
+  "name": "@ziviola/extract",
+  "version": "0.1.0",
+  "description": "Official Ziviola Extract SDK for Node.js",
+  "keywords": ["ziviola", "extract", "pdf", "document extraction", "markdown"],
+  "homepage": "https://github.com/ziviola-com/extract-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ziviola-com/extract-node.git",
+    "directory": "packages/extract"
+  },
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@ziviola/sdk-core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "jest": "^29.0.0",
+    "@jest/globals": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
